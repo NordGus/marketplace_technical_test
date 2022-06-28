@@ -4,6 +4,31 @@ require './lib/rules/off_purchase'
 require './lib/rules/product_amount_offer'
 
 describe Checkout do
+  describe "#scan" do
+    let(:checkout) { Checkout.new }
+
+    context "succeeds" do
+      it "it should add the required product to the basket" do
+        co = checkout
+        co.scan("001")
+
+        basket = co.basket
+
+        expect(basket.length).to eq(1)
+        expect(basket.first.code).to eq("001")
+        expect(basket.first.name).to eq("Lavender heart")
+        expect(basket.first.price).to eq(925)
+      end
+    end
+
+    context "fails" do
+      it "it should raise an argument exception" do
+        co = checkout
+        expect { co.scan("bad_code") }.to raise_error(ArgumentError, "invalid code")
+      end
+    end
+  end
+
   describe '#total' do
     let(:checkout) do
       Checkout.new([

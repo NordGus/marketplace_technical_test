@@ -6,6 +6,8 @@ class Product
   def initialize(code)
     product_data = Stock.products[code]
 
+    raise ArgumentError, "invalid code" if product_data.nil?
+
     @code = product_data[:code]
     @name = product_data[:name]
     @price = product_data[:price]
