@@ -63,7 +63,7 @@ describe Checkout do
       end
     end
 
-    context "both offers" do
+    context "client buys buy 2 lavender hearts and buys more than $60" do
       it "it should apply new price of $8.50 to each lavender heart on the basket and apply 10% off the client's total purchase" do
         basket = %w[001 002 001 003]
         co = checkout
