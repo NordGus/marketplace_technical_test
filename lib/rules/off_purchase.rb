@@ -1,5 +1,7 @@
+require 'rules/rule'
+
 module Rules
-  class OffPurchase
+  class OffPurchase < Rule
     def initialize(percentatge:, after: 0)
       @percentatge = (100 - percentatge) / 100.0
       @after = after

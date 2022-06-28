@@ -20,6 +20,6 @@ class Checkout
       @subtotal = rule.apply(@basket, @subtotal)
     end
 
-    "$#{@subtotal / 100}"
+    "$#{(@subtotal / 100.0).round(2)}"
   end
 end
