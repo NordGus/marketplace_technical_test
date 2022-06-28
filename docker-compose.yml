@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  dev:
+    build: .
+    image: unit4-tdd
+    command: tail -f /dev/null
+    volumes:
+      - .:/var/app
