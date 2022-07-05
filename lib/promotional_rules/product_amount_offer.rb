@@ -1,6 +1,6 @@
-require 'rules/rule'
+require 'rule'
 
-module Rules
+module PromotionalRules
   class ProductAmountOffer < Rule
     def initialize(product_code:, new_price:, after_amount: 0)
       @product_code = product_code

@@ -1,6 +1,6 @@
-require 'rules/rule'
+require 'rule'
 
-module Rules
+module PromotionalRules
   class OffPurchase < Rule
     def initialize(percentatge:, after: 0)
       @percentatge = (100 - percentatge) / 100.0

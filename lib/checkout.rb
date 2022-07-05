@@ -1,4 +1,4 @@
-require 'product'
+require 'scanner'
 
 class Checkout
   attr_reader :basket
@@ -10,7 +10,7 @@ class Checkout
   end
 
   def scan(item)
-    @basket << Product.new(item)
+    @basket << Scanner.scan_product(item)
   end
 
   def total

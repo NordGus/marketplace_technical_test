@@ -1,7 +1,7 @@
 require 'spec_helper'
 require './lib/checkout'
-require './lib/rules/off_purchase'
-require './lib/rules/product_amount_offer'
+require './lib/promotional_rules/off_purchase'
+require './lib/promotional_rules/product_amount_offer'
 
 describe Checkout do
   describe "#scan" do
@@ -32,8 +32,8 @@ describe Checkout do
   describe '#total' do
     let(:checkout) do
       Checkout.new([
-                     Rules::ProductAmountOffer.new(product_code: "001", new_price: 850, after_amount: 2),
-                     Rules::OffPurchase.new(percentatge: 10, after: 6000)
+                     PromotionalRules::ProductAmountOffer.new(product_code: "001", new_price: 850, after_amount: 2),
+                     PromotionalRules::OffPurchase.new(percentatge: 10, after: 6000)
                    ])
     end
 
